@@ -1,26 +1,43 @@
-cliente:
-{{cliente.nombre}}
-
+<h1 class="bg-primary text-white">Informacion Personal</h1>
 <form action="">
-    <label for="nombre">Nombre:</label>
-    <input type="text" [(ngModel)]="cliente.nombre" name="nombre" id="nombre">
-    <label for="email">Email:</label>
-    <input type="text" [(ngModel)]="cliente.email" name="email" id="email">
-    <button (click)="actualizarDatosCliente()">Actualizar</button>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" id="nombre">
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email" id="email">
+    </div>
+    <button class="btn btn-primary" (click)="actualizarDatosCliente()">Actualizar</button>
 </form>
-
+<hr>
+<h1 class="bg-success text-white">Vehiculos</h1>
 <form action="">
-    <label for="nombre">Marca:</label>
-    <input type="text" [(ngModel)]="vehiculo.marca" name="nombre" id="nombre">
-    <label for="email">Anio:</label>
-    <input type="text" [(ngModel)]="vehiculo.anio" name="email" id="email">
-    <label for="email">Matricula:</label>
-    <input type="text" [(ngModel)]="vehiculo.matricula" name="email" id="email">
-    <label for="email">Placas:</label>
-    <input type="text" [(ngModel)]="vehiculo.placas" name="email" id="email">
-    <button (click)="registrarVehiculo()">Registrar</button>
+    <div class="form-group">
+        <label for="nombre">Marca:</label>
+        <input type="text" class="form-control" [(ngModel)]="vehiculo.marca" name="nombre" id="nombre">
+    </div>
+    <div class="form-group">
+        <label for="email">Año:</label>
+        <input type="date" class="form-control" [(ngModel)]="vehiculo.anio" name="email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="email">Matricula:</label>
+        <input type="text" class="form-control" [(ngModel)]="vehiculo.matricula" name="email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="email">Placas:</label>
+        <input type="text" class="form-control" [(ngModel)]="vehiculo.placas" name="email" id="email">
+    </div>
+    <button class="btn btn-success" (click)="registrarVehiculo()">Registrar</button>
 </form>
-<table border="2">
+<hr>
+<h1>Mis Vehiculos</h1>
+<table class="table table-bordered table-striped table-sm table-hover">
+    <tr>
+        <th>Marca</th>
+        <th>Año</th>
+    </tr>
     <tr *ngFor="let vehiculo of vehiculos ">
         <td>{{vehiculo.marca}}</td>
         <td>{{vehiculo.anio}}</td>
