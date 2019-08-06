@@ -47,7 +47,7 @@ export class ClienteComponent implements OnInit {
     }
 
     registrarVehiculo() {
-        this.servicio.post('clientes/vehiculos?id_cliente=' + this.cliente.id_clientes, this.vehiculo).subscribe(
+        this.servicio.post('clientes/vehiculos?id_cliente=' + this.cliente.id, this.vehiculo).subscribe(
             respuesta => {
                 alert('actualizado');
             }
@@ -55,9 +55,27 @@ export class ClienteComponent implements OnInit {
     }
 
     obtenerVehiculos() {
-        this.servicio.get('clientes/vehiculos?id_cliente=' + this.cliente.id_clientes).subscribe(
+        this.servicio.get('clientes/vehiculos?id_cliente=' + this.cliente.id).subscribe(
             respuesta => {
                 this.vehiculos = respuesta as Array<Vehiculo>;
+            }
+        );
+    }
+
+    seleccionarVehiculo() {
+        console.log(this.vehiculo.placas);
+        this.vehiculos.forEach(value => {
+            if (value.placas == this.vehiculo.placas) {
+                this.vehiculo = value;
+            }
+        });
+        //this.vehiculo = vehiculo;
+
+    }
+    actualizarVehiculo() {
+        this.servicio.put('clientes/vehiculos?id=' + this.vehiculo.id, this.vehiculo).subscribe(
+            respuesta => {
+                alert('actualizado');
             }
         );
     }

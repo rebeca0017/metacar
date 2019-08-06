@@ -1,5 +1,5 @@
 export class Vehiculo {
-    id_vehiculo: number;
+    id: number;
     anio: string;
     marca: string;
     matricula: string;

@@ -1,8 +1,8 @@
 export class Cliente {
-    id_clientes: number;
-    email: string;
-    clave: string;
+    id: number;
     nombre: string;
+    apellido: string;
+    direccion: string;
     telefono: string;
     id_usuario: number;
 
