@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, OnInit} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {Usuario} from '../../../modelos/Usuario';
 
 @Component({
     selector: 'app-header',
@@ -9,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
+    usuario: Usuario;
 
     constructor(private translate: TranslateService, public router: Router) {
 
@@ -24,6 +26,7 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.usuario = JSON.parse(localStorage.getItem('usuario')) as Usuario;
         this.pushRightClass = 'push-right';
     }
 

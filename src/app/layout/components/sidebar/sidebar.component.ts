@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, Output, EventEmitter, OnInit} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {Usuario} from '../../../modelos/Usuario';
 
 @Component({
     selector: 'app-sidebar',
@@ -12,7 +13,7 @@ export class SidebarComponent implements OnInit {
     collapsed: boolean;
     showMenu: string;
     pushRightClass: string;
-
+    usuario: Usuario;
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
     constructor(private translate: TranslateService, public router: Router) {
@@ -28,6 +29,7 @@ export class SidebarComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.usuario = JSON.parse(localStorage.getItem('usuario')) as Usuario;
         this.isActive = false;
         this.collapsed = false;
         this.showMenu = '';

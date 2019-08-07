@@ -1,0 +1,50 @@
+<h1 class="bg-success text-white">Matenimientos</h1>
+
+<form action="">
+    <div class="form-group">
+        <label for="placas">Placas:</label>
+        <select name="placas" id="placas" [(ngModel)]="vehiculo.placas" (change)="seleccionarVehiculo()"
+                class="form-control">
+            <option value="">seleccione</option>
+            <option value="{{v.placas}}" *ngFor="let v of vehiculos">
+                {{v.placas}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="id">Servicios:</label>
+        <select name="id" id="id" [(ngModel)]="serv.nombre" (change)="seleccionarServicio()" class="form-control">
+            <option value="">seleccione</option>
+            <option value="{{s.nombre}}" *ngFor="let s of servs">
+                {{s.nombre}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="fecha">Fecha:</label>
+        <input type="date" class="form-control" [(ngModel)]="mantenimiento.fecha" name="fecha" id="fecha">
+    </div>
+    <div class="form-group">
+        <label for="hora">Hora:</label>
+        <input type="time" class="form-control" [(ngModel)]="mantenimiento.hora" name="hora" id="hora">
+    </div>
+    <button class="btn btn-success " (click)="registrarMantenimiento()">Registrar</button>
+</form>
+<hr>
+<h1>Lista de mantenimientos</h1>
+<table class="table table-striped table-sm">
+    <tr>
+        <td>id</td>
+        <td>Servicio</td>
+        <td>Fecha</td>
+        <td>Hora</td>
+    </tr>
+    <tr *ngFor="let m of mantenimientos">
+        <td>{{m.id}}</td>
+        <td>{{m.nombre_servicio}}</td>
+        <td>{{m.fecha}}</td>
+        <td>{{m.hora}}</td>
+        <button class="btn btn-danger" (click)="eliminarMantenimiento(m)">Eliminar</button>
+    </tr>
+</table>
+

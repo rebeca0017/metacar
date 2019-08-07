@@ -69,7 +69,7 @@ export class ClienteComponent implements OnInit {
                 this.vehiculo = value;
             }
         });
-        //this.vehiculo = vehiculo;
+
 
     }
     actualizarVehiculo() {

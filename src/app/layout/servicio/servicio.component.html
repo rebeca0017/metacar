@@ -1,0 +1,36 @@
+<h1 class="bg-success text-white">Servicios</h1>
+
+<form action="">
+    <div class="form-group">
+        <label for="id">Servicios:</label>
+        <select name="id" id="id" [(ngModel)]="serv.nombre" (change)="seleccionarServicio()" >
+            <option value="">seleccione</option>
+            <option value="{{s.nombre}}" *ngFor="let s of servs" >
+                {{s.nombre}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" [(ngModel)]="serv.nombre" name="nombre" id="nombre">
+    </div>
+    <div class="form-group">
+        <label for="costo">costo:</label>
+        <input type="text" class="form-control" [(ngModel)]="serv.costo" name="costo" id="costo">
+    </div>
+    <div class="form-group">
+        <label for="tipo">tipo:</label>
+        <select class="form-control" [(ngModel)]="serv.tipo" name="tipo" id="tipo">
+            <option value="CORRECTIVO">CORRECTIVO </option>
+            <option value="PREVENTIVO">PREVENTIVO </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="codigo">codigo:</label>
+        <input type="text" class="form-control" [(ngModel)]="serv.codigo" name="codigo" id="codigo">
+    </div>
+    <button class="btn btn-success " (click)="registrarServicio()">Registrar</button>
+    <button class="btn btn-primary ml-2" (click)="actualizarServicio()">Actualizar</button>
+    <button class="btn btn-danger ml-2" (click)="eliminarServicio()">eliminar</button>
+</form>
+

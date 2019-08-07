@@ -29,8 +29,13 @@ export class LoginComponent implements OnInit {
                             console.log(respuesta[0].id);
                             localStorage.setItem('isLoggedin', 'true');
                             localStorage.setItem('usuario', JSON.stringify(respuesta[0]));
-                            alert('Ingreso correcto');
-                            this.router.navigate(['dashboard']);
+                            this.usuario = JSON.parse(localStorage.getItem('usuario')) as Usuario;
+                            if (this.usuario.id_rol == 1) {
+                                this.router.navigate(['mantenimientos']);
+                            } else if (this.usuario.id_rol == 2){
+                                this.router.navigate(['clientes']);
+                            }
+
                         }
                     } else {
                         localStorage.setItem('isLoggedin', 'false');

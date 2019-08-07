@@ -1,10 +1,10 @@
-import { ClienteModule } from './cliente.module';
+import { ReservacionesModule } from './reservaciones.module';
 
 describe('MantenimientoModule', () => {
-    let blankPageModule: ClienteModule;
+    let blankPageModule: ReservacionesModule;
 
     beforeEach(() => {
-        blankPageModule = new ClienteModule();
+        blankPageModule = new ReservacionesModule();
     });
 
     it('should create an instance', () => {

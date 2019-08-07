@@ -1,9 +1,22 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
 
-        <a [routerLink]="['/clientes']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a *ngIf="usuario.id_rol==2" [routerLink]="['/clientes']" [routerLinkActive]="['router-link-active']"
+           class="list-group-item">
             <i class="fa fa-fw fa-address-card"></i>&nbsp;
-            <span>clientes</span>
+            <span>CLIENTES</span>
+        </a>
+        <a *ngIf="usuario.id_rol==1" [routerLink]="['/servicios']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-wrench"></i>&nbsp;
+            <span>SERVICIOS</span>
+        </a>
+        <a *ngIf="usuario.id_rol==1 || usuario.id_rol==2" [routerLink]="['/mantenimientos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-wrench"></i>&nbsp;
+            <span>MANTENIMIENTOS</span>
+        </a>
+        <a *ngIf="usuario.id_rol==1" [routerLink]="['/reservaciones']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-wrench"></i>&nbsp;
+            <span>RESERVACIONES</span>
         </a>
 
         <div class="header-fields">

@@ -1,6 +1,6 @@
 import { BlankPageModule } from './blank-page.module';
 
-describe('ClienteModule', () => {
+describe('MantenimientoModule', () => {
     let blankPageModule: BlankPageModule;
 
     beforeEach(() => {
